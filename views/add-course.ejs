@@ -1,0 +1,25 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include("./partials/nav.ejs") %>
+
+            <div class="add-course content">
+                <form action="/courses" method="POST">
+                    <label for="name">Course Name:</label>
+                    <input type="text" id="name" name="name">
+                    <label for="snippet">Course Snippet:</label>
+                    <textarea id="snippet" name="snippet" maxlength="90"></textarea>
+                    <label for="description">Course Description:</label>
+                    <textarea id="description" name="description"></textarea>
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject">
+                    <label for="credits">Credits:</label>
+                    <input type="number" id="credits" name="credits">
+                    <button>Submit</button>
+                </form>
+            </div>
+            <%- include("./partials/footer.ejs") %>
+    </body>
+
+</html>

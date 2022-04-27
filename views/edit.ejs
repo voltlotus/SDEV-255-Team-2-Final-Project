@@ -1,0 +1,43 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include("./partials/nav.ejs") %>
+
+            <div class="courses content" href="/edit/_course.id">
+                <h2>Edit a Course</h2>
+
+                <section class="edit-course content">
+                    <form action="/edit/<%=courses.id %>?_method=PUT" method="post">
+                        <div class="input">
+                            <h2 class="name">
+                                <%= courses.name %>
+                            </h2>
+                            <input type="text" id="name" name="name" value="<%=courses.name %>">
+                        </div>
+                        <div class="input">
+                            <label for="snippet">Course Snippet:</label>
+                            <textarea id="snippet" name="snippet" maxlength="90"><%=courses.snippet %></textarea>
+                        </div>
+                        <div class="input">
+                            <label for="description">Course Description:</label>
+                            <textarea id="description" name="description"><%=courses.description %></textarea>
+                        </div>
+                        <div class="input">
+                            <label for="subject">Subject:</label>
+                            <input type="text" id="subject" name="subject" value="<%=courses.subject %>">
+                        </div>
+                        <div class="input">
+                            <label for="credits">Credits:</label>
+                            <input type="number" id="credits" name="credits" value=<%=courses.credits %>>
+                        </div>
+                        <a href="/course-list">Cancel</a>
+                        <button type="submit" class="btn-update">Update</button>
+                    </form>
+                </section>
+
+                <%- include("./partials/footer.ejs") %>
+
+    </body>
+
+</html>
