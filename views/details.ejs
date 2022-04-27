@@ -1,0 +1,58 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include("./partials/nav.ejs") %>
+
+            <div class="details content" href="/courses/_course.id">
+                <h2 class="name">
+                    <%= courses.name %>
+
+                </h2>
+                <div class="snippet">
+                    <h5>Snippet:</h5>
+                    <p>
+                        <%= courses.snippet %>
+                    </p>
+                </div>
+                <div class="description">
+                    <h5>Description:</h5>
+                    <p>
+                        <%= courses.description %>
+                    </p>
+                </div>
+                <div class="subject">
+                    <h5>Subject:</h5>
+                    <p>
+                        <%= courses.subject %>
+                    </p>
+                </div>
+                <div class="credits">
+                    <h5>Credits:</h5>
+                    <p>
+                        <%= courses.credits %>
+                    </p>
+                </div>
+                <a class="edit" data-doc="<%= courses._id %>" href="/edit/<%= courses._id %>">Edit</a> |
+                <a class="delete" data-doc="<%= courses._id %>">DELETE</a>
+            </div>
+
+            <%- include("./partials/footer.ejs") %>
+
+                <script>
+                    const trashcan = document.querySelector('a.delete');
+
+                    trashcan.addEventListener('click', (e) => {
+                        const delete_endpoint = `/courses/${trashcan.dataset.doc}`;
+
+                        fetch(delete_endpoint, {
+                            method: 'DELETE',
+                        })
+                            .then((response) => response.json())
+                            .then((data) => window.location.href = data.redirect)
+                            .catch(err => console.log(err));
+                    })
+                </script>
+    </body>
+
+</html>
