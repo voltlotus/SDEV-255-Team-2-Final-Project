@@ -14,6 +14,8 @@ mongoose
   // listen for requests after successful connection to DB
   .then((result) => app.listen(3000))
   .catch((err) => console.log(err));
+  
+
 
 // register view engine
 app.set("view engine", "ejs");
