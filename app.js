@@ -2,10 +2,17 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const Course = require("./models/course");
+const User = require("./models/user");
+const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 
 // express app
 const app = express();
+//Code to use users api in api folder
+const router = express.Router();
+router.use(bodyParser.urlencoded({ extended: false }));
+router.use("/api", require("./api/users"));
+app.use(router);
 
 const dbURI =
   "mongodb+srv://sdev255_team2:team2^@cluster0.d0eab.mongodb.net/sdev255_sp22?retryWrites=true&w=majority";
