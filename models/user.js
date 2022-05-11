@@ -15,12 +15,13 @@ const userSchema = new Schema(
           teacher: {
             type: Boolean,  //Default = false (Not teacher, vice versa when true)
             required: true
-          }
+          },
+          status: String
     },
 { timestamps: true }
 );
 
-// User model; Will look for collection named "Courses"
+// User model; Will look for collection named "User"
 const User = mongoose.model("User", userSchema);
 module.exports = User;
 
