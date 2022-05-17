@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <%- include("./partials/head.ejs") %>
 
@@ -61,15 +62,16 @@
               login page (button top right)
             </p>
           </div>
+          <!--Form to send POST request for user account (email and password)-->
           <div class="col-md-10 mx-auto col-lg-5">
-            <form class="p-4 p-md-5 border rounded-3 bg-light">
+            <form method="POST" class="p-4 p-md-5 border rounded-3 bg-light">
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" />
-                <label for="floatingInput">Email address</label>
+                <input id="email" type="email" class="form-control" placeholder="name@example.com" />
+                <label for="email">Email address</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" />
-                <label for="floatingPassword">Password</label>
+                <input id="password" type="password" class="form-control" placeholder="Password" />
+                <label for="password">Password</label>
               </div>
               <div class="checkbox mb-3">
                 <label>
