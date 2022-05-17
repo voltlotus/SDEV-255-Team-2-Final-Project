@@ -5,6 +5,7 @@ const Course = require("./models/course");
 const User = require("./models/user");
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
+const authRoutes = require('./routes/authRoutes');
 
 // express app
 const app = express();
@@ -13,6 +14,7 @@ const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use("/api", require("./api/users"));
 app.use(router);
+app.use(express.json());
 
 const dbURI =
   "mongodb+srv://sdev255_team2:team2^@cluster0.d0eab.mongodb.net/sdev255_sp22?retryWrites=true&w=majority";
@@ -58,6 +60,9 @@ app.get("/course-list", (req, res) => {
     });
 });
 
+//authRoutes.js
+app.use(authRoutes);
+
 app.get("/courses/add-course", (req, res) => {
   res.render("add-course", { title: "Add a Course" });
 });
@@ -96,6 +101,7 @@ app.post("/courses", (req, res) => {
       console.log(err);
     });
 });
+
 
 // route methods ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // edit by id
