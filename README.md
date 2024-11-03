@@ -7,5 +7,5 @@ Prompt: Create a web application that allows students sign- up for college cours
 
 - [Chelsea M.](https://github.com/cdmitchener)
 - [Marcus K.](https://github.com/DotDotDottt)
-- [Matthew L.](https://github.com/MStudent1)
+- [Alex L.](https://github.com/MStudent1)
 - [Lauren T.](https://github.com/Keraunic-Tonic)
